@@ -29,7 +29,7 @@ public class View {
                     String number = "";
                     // read till the end of data
                     System.out.print("Enter Phone Number : ");
-                    Pattern delimiters = Pattern.compile(System.getProperty("line.separator")+"|\\s");
+                    Pattern delimiters = Pattern.compile(System.getProperty("line.separator"));
                     scan.useDelimiter(delimiters);
                     //TODO Space signs will split the String somehow.
 

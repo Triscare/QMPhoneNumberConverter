@@ -8,6 +8,8 @@ public class PhoneNumber {
     private String number;
     private String directDialing;
 
+    private String internationalNumber;
+
     private PhoneNumber(){}
 
     public PhoneNumber(String countryCode, String areaCode, String number){
@@ -23,5 +25,10 @@ public class PhoneNumber {
         this.areaCode=areaCode;
         this.number=number;
         this.directDialing=directDialing;
+    }
+
+    public PhoneNumber(String internationalNumber){
+        System.out.println("New international Number with no matching DB pattern found");
+        this.internationalNumber=internationalNumber;
     }
 }

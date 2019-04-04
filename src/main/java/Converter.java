@@ -19,6 +19,7 @@ public class Converter {
 
     public PhoneNumber convertPhnoneNumber(String phoneNumber){
 
+        phoneNumber.replaceAll("\\s+","");
         try {
             Phonenumber.PhoneNumber tempNumber;
             if(phoneNumber.startsWith("+"))
@@ -34,26 +35,26 @@ public class Converter {
             String intNumber=phoneNumberUtil.format(tempNumber, PhoneNumberUtil.PhoneNumberFormat.INTERNATIONAL);
 
             System.out.println(intNumber);
-            String[] splited = intNumber.split("\\s");
+            String[] splited = intNumber.split("\\s|\\-");
 
             System.out.println(phoneNumberUtil.getRegionCodeForCountryCode(Integer.valueOf(splited[0].toString().substring(1))));
 
-            if(phoneNumber.contains("-")){
-                String directDialing= phoneNumber.split("-")[1];
-                splited[2]=splited[2].replace(directDialing, "");
-
-                return new PhoneNumber(splited[0], splited[1], splited[2], directDialing);
+//            if(phoneNumber.contains("-")){
+//
+//                String directDialing= phoneNumber.split("-")[1];
+//                if(splited[2].contains(directDialing)) {
+//                    splited[2] = splited[2].replace(directDialing, "");
+//                    return new PhoneNumber(splited[0], splited[1], splited[2], directDialing);
+//                }
+//            }
+            System.out.println(splited.length);
+            if(splited.length==3) {
+                return new PhoneNumber(splited[0], splited[1], splited[2]);
             }
-            return new PhoneNumber(splited[0], splited[1], splited[2]);
-
-
-
+            return new PhoneNumber(intNumber);
         } catch (NumberParseException e) {
             e.printStackTrace();
         }
-
-
-
         return null;
     }
 
