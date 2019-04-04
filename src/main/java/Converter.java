@@ -45,10 +45,10 @@ public class Converter {
                 tempNumber=phoneNumberUtil.parse(phoneNumber, Config.defaultCountryCode);
             }
 
+            //TODO direct dial
+
             //Converts the phoneNumber
             String intNumber=phoneNumberUtil.format(tempNumber, PhoneNumberUtil.PhoneNumberFormat.INTERNATIONAL);
-
-            System.out.println(intNumber);
 
             String[] splited = intNumber.split("\\s|\\-");
 
