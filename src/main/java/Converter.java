@@ -19,8 +19,8 @@ public class Converter {
     public PhoneNumber convertPhnoneNumber(String phoneNumber){
 
         try {
-            System.out.printf(getCountryCode(phoneNumber));
-            Phonenumber.PhoneNumber tempNumber=phoneNumberUtil.parse(phoneNumber, Config.defaultCountryCode);
+            //System.out.printf(getCountryCode(phoneNumber));
+            Phonenumber.PhoneNumber tempNumber=phoneNumberUtil.parse(phoneNumber,"");
             String intNumber=phoneNumberUtil.format(tempNumber, PhoneNumberUtil.PhoneNumberFormat.INTERNATIONAL);
 
             System.out.println(intNumber);
@@ -50,6 +50,7 @@ public class Converter {
             int alphaThree=Integer.valueOf(tempThree);
 
             System.out.println(CountryCode.getByCode(tempTwo));
+
             if(CountryCode.getByCode(alphaThree)!=null)
                 return CountryCode.getByCode(alphaThree).getAlpha3();
 
@@ -63,6 +64,6 @@ public class Converter {
         if(phoneNumber.startsWith("0")){
 
         }
-       return "Test";
+       return "Test\n";
     }
 }

@@ -960,6 +960,8 @@ public enum CountryCode
      */
     public static CountryCode getByCode(int code)
     {
+        System.out.println("In enum: "+code);
+        System.out.println(numericMap.get(49));
         return numericMap.get(code);
     }
 }
