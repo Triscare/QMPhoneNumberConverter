@@ -10,6 +10,7 @@ public class Converter {
     private String[] locales;
 
     public Converter(){
+
         phoneNumberUtil=PhoneNumberUtil.getInstance();
 
         locales = Locale.getISOCountries();
@@ -33,14 +34,18 @@ public class Converter {
             String intNumber=phoneNumberUtil.format(tempNumber, PhoneNumberUtil.PhoneNumberFormat.INTERNATIONAL);
 
             System.out.println(intNumber);
-            String[] splited = intNumber.split("\\s+");
+            String[] splited = intNumber.split("\\s");
 
-            if(splited.length==3) {
-                System.out.println(phoneNumberUtil.getRegionCodeForCountryCode(Integer.valueOf(splited[0].toString().substring(1))));
-                return new PhoneNumber(splited[0], splited[1], splited[2]);
+            System.out.println(phoneNumberUtil.getRegionCodeForCountryCode(Integer.valueOf(splited[0].toString().substring(1))));
+
+            if(phoneNumber.contains("-")){
+                String directDialing= phoneNumber.split("-")[1];
+                splited[2]=splited[2].replace(directDialing, "");
+
+                return new PhoneNumber(splited[0], splited[1], splited[2], directDialing);
             }
-            if(splited.length==4)
-                return new PhoneNumber(splited[0], splited[1], splited[2], splited[3]);
+            return new PhoneNumber(splited[0], splited[1], splited[2]);
+
 
 
         } catch (NumberParseException e) {
