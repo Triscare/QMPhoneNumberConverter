@@ -52,7 +52,7 @@ public class View {
                             continue;
                         }
 
-                        System.out.println("Formatted Number: " + converter.convertPhnoneNumber(number));
+                        System.out.println("Formatted Number: " + converter.convertPhoneNumber(number));
                         System.out.print("Enter Phone Number : ");
 
                     }
