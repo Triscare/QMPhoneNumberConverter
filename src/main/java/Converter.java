@@ -53,14 +53,14 @@ public class Converter {
             String[] splited = intNumber.split("\\s|\\-");
 
             //Gets the countryCode as String
-            System.out.println(phoneNumberUtil.getRegionCodeForCountryCode(Integer.valueOf(splited[0].toString().substring(1))));
+            String ISOCountryCode=phoneNumberUtil.getRegionCodeForCountryCode(Integer.valueOf(splited[0].toString().substring(1)));
 
             //if the converted phone number has 3 substring, this db-pattern is called
             if(splited.length==3) {
-                return new PhoneNumber(splited[0], splited[1], splited[2]);
+                return new PhoneNumber(splited[0], splited[1], splited[2], intNumber, ISOCountryCode);
             }
             //else the number is written into the internationalNumber field
-            return new PhoneNumber(intNumber);
+            return new PhoneNumber(intNumber, ISOCountryCode);
         } catch (NumberParseException e) {
             e.printStackTrace();
         }

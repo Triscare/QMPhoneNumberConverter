@@ -28,6 +28,8 @@ public class PhoneNumber {
      */
     private String internationalNumber;
 
+    private String ISOCountryCodes;
+
     private PhoneNumber(){}
 
     /**
@@ -36,34 +38,22 @@ public class PhoneNumber {
      * @param areaCode Area code of a number
      * @param number The direct number of a phone number
      */
-    public PhoneNumber(String countryCode, String areaCode, String number){
+    public PhoneNumber(String countryCode, String areaCode, String number, String internationalNumber, String ISOCountryCodes){
         System.out.println("New number without direct dialing");
         this.countryCode=countryCode;
         this.areaCode=areaCode;
         this.number=number;
-    }
-
-    /**
-     * Constructor for Number without direct dialing
-     * @param countryCode Country code of a number
-     * @param areaCode Area code of a number
-     * @param number The direct number of a phone number
-     * @param directDialing The direct dialing of a number
-     */
-    public PhoneNumber(String countryCode, String areaCode, String number, String directDialing){
-        System.out.println("New number with direct dialing");
-        this.countryCode=countryCode;
-        this.areaCode=areaCode;
-        this.number=number;
-        this.directDialing=directDialing;
+        this.internationalNumber=internationalNumber;
+        this.ISOCountryCodes=ISOCountryCodes;
     }
 
     /**
      * Constructor for Number without db pattern match
      * @param internationalNumber the whole international Number
      */
-    public PhoneNumber(String internationalNumber){
+    public PhoneNumber(String internationalNumber, String ISOCountryCodes){
         System.out.println("New international Number with no matching DB pattern found");
         this.internationalNumber=internationalNumber;
+        this.ISOCountryCodes=ISOCountryCodes;
     }
 }
