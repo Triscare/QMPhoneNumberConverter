@@ -8,8 +8,8 @@ import java.util.regex.Pattern;
 public class View {
     private final static String CHANGE_COUNTRY_CODE = "CountryCode:";
     private Converter converter;
-    public View(){
-        converter=new Converter();
+    public View(Converter converter){
+        this.converter=converter;
     }
 
     /**
