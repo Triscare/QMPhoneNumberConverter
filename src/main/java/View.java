@@ -29,7 +29,7 @@ public class View {
                     Pattern delimiters = Pattern.compile(System.getProperty("line.separator")+"|\\s");
                     scan.useDelimiter(delimiters);
                     //TODO Space signs will split the String somehow.
-                    
+
                     while (scan.hasNext()) {
                         // read next
                         String str = scan.next();
