@@ -46,15 +46,15 @@ public class Converter {
         if(phoneNumber.startsWith("+")){
             String tempTwo=String.valueOf(phoneNumber.charAt(1))+String.valueOf(phoneNumber.charAt(2));
             String tempThree=String.valueOf(phoneNumber.charAt(1))+String.valueOf(phoneNumber.charAt(2))+String.valueOf(phoneNumber.charAt(3));
-            System.out.println(tempTwo);
-            System.out.println(tempThree);
+            int alphaTwo=Integer.valueOf(tempTwo);
+            int alphaThree=Integer.valueOf(tempThree);
 
             System.out.println(CountryCode.getByCode(tempTwo));
-            if(CountryCode.getByCode(tempThree)!=null)
-                return CountryCode.getByCode(tempThree).getAlpha3();
+            if(CountryCode.getByCode(alphaThree)!=null)
+                return CountryCode.getByCode(alphaThree).getAlpha3();
 
-            if(CountryCode.getByCode(tempTwo)!=null){
-                return CountryCode.getByCode(tempTwo).getAlpha2();
+            if(CountryCode.getByCode(alphaTwo)!=null){
+                return CountryCode.getByCode(alphaTwo).getAlpha2();
             }
         }
         if(phoneNumber.startsWith("00")){
