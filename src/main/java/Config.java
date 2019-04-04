@@ -1,6 +1,6 @@
 public class Config {
 
-    public static String defaultCountryCoude;
+    public static String defaultCountryCode="DE";
 
     private Config(){}
 }

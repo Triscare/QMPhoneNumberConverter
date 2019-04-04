@@ -11,12 +11,14 @@ public class PhoneNumber {
     private PhoneNumber(){}
 
     public PhoneNumber(String countryCode, String areaCode, String number){
+        System.out.println("New number without direct dialing");
         this.countryCode=countryCode;
         this.areaCode=areaCode;
         this.number=number;
     }
 
     public PhoneNumber(String countryCode, String areaCode, String number, String directDialing){
+        System.out.println("New number with direct dialing");
         this.countryCode=countryCode;
         this.areaCode=areaCode;
         this.number=number;
