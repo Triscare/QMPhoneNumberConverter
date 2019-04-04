@@ -4,7 +4,10 @@ import java.util.regex.Pattern;
 
 public class View {
     private final static String CHANGE_COUNTRY_CODE = "CountryCode:";
-    public View(){}
+    private Converter converter;
+    public View(){
+        converter=new Converter();
+    }
 
     public void startReading(){
             Console cnsl = null;
@@ -48,6 +51,7 @@ public class View {
                             continue;
                         }
                         System.out.println("Full Number found: " + number);
+                        converter.convertPhnoneNumber(number);
                         System.out.print("Enter Phone Number : ");
                         str = "";
                         number = "";
