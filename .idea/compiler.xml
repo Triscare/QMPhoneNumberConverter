@@ -9,8 +9,5 @@
         <module name="QMPhoneNumberConverter" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="QMPhoneNumberConverter" target="1.5" />
-    </bytecodeTargetLevel>
   </component>
 </project>
